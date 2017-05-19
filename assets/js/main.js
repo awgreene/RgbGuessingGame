@@ -1,11 +1,12 @@
-
 /************************************************
 Title Functions
 ************************************************/
 var rgbDisplay = document.querySelector("#rgbDisplay");
 function updateBanner() {
-	rgbDisplay.innerHTMLboxes[selectRandomBox()].style.background;
+	rgbDisplay.innerHTML = boxes[selectRandomBox()].style.background
 }
+
+var isEasy = true;
 
 
 /************************************************
@@ -21,11 +22,29 @@ for(var i = 0; i < options.length; i++){
 	});
 }
 
+
+var bNew = document.querySelector("#bNew");
+bNew.addEventListener("click", newGame);
+function newGame(){
+	changeAllBoxColors();
+	updateBanner();
+}
+
 /************************************************
 Box Functions
 ************************************************/
 var boxes = document.querySelectorAll(".box");
-changeAllBoxColors();
+for(var i = 0; i < boxes.length; i++) {
+	boxes[i].addEventListener("click", function() {
+		console.log("clicked box: " + console.log(this.style.backgroundColor));
+		console.log("target: " + rgbDisplay.innerHTML);
+		if(this.style.backgroundColor === rgbDisplay.innerHTML) {
+			alert("YOU WIN!!!");
+		} else {
+			alert("Wrong color!!!");
+		}
+	});
+}
 function changeAllBoxColors() {
 	for(var i = 0; i < boxes.length; i++) {
 		changeColor(boxes[i]);
@@ -46,3 +65,9 @@ function rgbRandom() {
 function selectRandomBox() {
 	return Math.floor(Math.random() * 6);
 }
+
+
+/************************************************
+Init Game
+************************************************/
+newGame();
