@@ -1,14 +1,14 @@
 /************************************************
 Title Functions
 ************************************************/
+var hard = true;
+
+var banner = document.querySelector(".banner");
 var rgbDisplay = document.querySelector("#rgbDisplay");
 function updateBanner() {
 	rgbDisplay.innerHTML = boxes[selectRandomBox()].style.background
 	banner.style.background = "blue";
 }
-
-var hard = true;
-var banner = document.querySelector(".banner");
 
 /************************************************
 Option Functions
@@ -24,7 +24,6 @@ for(var i = 0; i < options.length; i++){
 }
 
 var bEasy = document.querySelector("#bEasy");
-var bHard = document.querySelector("#bHard");
 bEasy.addEventListener("click", function() {
 	hard = false;
 	bEasy.classList.add("option-selected");
@@ -32,6 +31,7 @@ bEasy.addEventListener("click", function() {
 	newGame();
 });
 
+var bHard = document.querySelector("#bHard");
 bHard.addEventListener("click", function() {
 	hard = true;
 	bHard.classList.add("option-selected");
@@ -60,22 +60,18 @@ for(var i = 0; i < boxes.length; i++) {
 		}
 	});
 }
+
 function changeBoxColors() {
 	for(var i = 0; i < boxes.length; i++) {
-		if(!hard && i > 2) {
-			hideBox(boxes[i]);
-		} else {
-			changeColor(boxes[i]);
-		}
+		hideBox(boxes[i]);
 	}
+	activeBoxArray().forEach(function(box){
+		changeColor(box);
+	});
 }
 
 function changeColor(box) {
 	box.style.background = 'rgb(' + rgbColorArray().join(',') +')';
-}
-
-function hideBox(box) {
-	box.style.background = '#232323';
 }
 
 function rgbColorArray() {
@@ -85,24 +81,37 @@ function rgbColorArray() {
 function rgbRandom() {
 	return  Math.floor(Math.random() * 255);
 }
+function hideBox(box) {
+	box.style.background = '#232323';
+}
 
 function selectRandomBox() {
 	if(hard) {
 		return Math.floor(Math.random() * 6);
 	}
-
 	return Math.floor(Math.random() * 3);
 }
 
+function activeBoxArray() {
+	var rtn = [];
+	var arraySize = 6;
+	if(!hard) {
+		arraySize = 3;
+	}
+	for(var i = 0; i < arraySize; i++) {
+		rtn.push(boxes[i]);
+	}
+	return rtn;
+}
+
+/************************************************
+Win Condition
+************************************************/
 function win() {
 	console.log("YOU WIN!");
-	for(var i = 0; i < boxes.length; i++) {
-		if(!hard && i > 2) {
-			hideBox(boxes[i]);
-		} else {
-			boxes[i].style.backgroundColor = rgbDisplay.innerHTML;
-		}
-	}
+	activeBoxArray().forEach(function(box){
+		box.style.backgroundColor = rgbDisplay.innerHTML;
+	});
 	banner.style.background = rgbDisplay.innerHTML;
 }
 
