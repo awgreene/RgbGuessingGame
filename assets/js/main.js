@@ -14,6 +14,7 @@ function updateBanner() {
 Option Functions
 ************************************************/
 var options = document.querySelectorAll(".option");
+var winnerMessage = document.querySelector("#winner");
 for(var i = 0; i < options.length; i++){
 	options[i].addEventListener("mouseover", function() {
 		this.classList.toggle("option-hover");
@@ -46,6 +47,7 @@ function newGame(){
 	changeBoxColors();
 	updateBanner();
 	bNew.textContent="New colors";
+	winnerMessage.style.color="white";
 }
 
 /************************************************
@@ -114,7 +116,8 @@ function win() {
 		box.style.backgroundColor = rgbDisplay.innerHTML;
 	});
 	banner.style.background = rgbDisplay.innerHTML;
-	bNew.textContent="Play again?"
+	bNew.textContent="Play again?";
+	winnerMessage.style.color="black";
 }
 
 /************************************************
