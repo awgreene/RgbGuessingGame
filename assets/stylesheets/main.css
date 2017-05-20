@@ -59,7 +59,14 @@ body {
 
 h1 {
 	margin: 0;
+	padding: 20px 0;
 	font-weight: normal;
+	font-size: 30px;
+	line-height: 1.1;
+	text-align: center;
+	text-transform: uppercase;
+	color: white;
+	background: steelblue;
 }
 
 .content {
@@ -75,17 +82,8 @@ h1 {
 	float: right;
 }
 
-.banner {
-	background-color: steelblue;
-	color: white;
-	text-align: center;
-	text-transform: uppercase;
-	font-size: 30px;
-}
-
 #rgbDisplay {
-	font-size: 40px;
-	margin: 5px;
+	font-size: 200%;
 }
 
 .options {
