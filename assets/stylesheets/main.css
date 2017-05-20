@@ -88,16 +88,6 @@ button {
 	margin: 0 auto;
 }
 
-.float-left {
-	float: left;
-	height: 100%;
-}
-
-.float-right {
-	float: right;
-	height: 100%;
-}
-
 #rgbDisplay {
 	font-size: 200%;
 }
