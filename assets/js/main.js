@@ -6,7 +6,7 @@ var hard = true;
 var banner = document.querySelector(".banner");
 var rgbDisplay = document.querySelector("#rgbDisplay");
 function updateBanner() {
-	rgbDisplay.innerHTML = boxes[selectRandomBox()].style.background
+	rgbDisplay.innerHTML = boxes[selectRandomBox()].style.background;
 	banner.style.background = "steelblue";
 }
 
@@ -45,6 +45,7 @@ bNew.addEventListener("click", newGame);
 function newGame(){
 	changeBoxColors();
 	updateBanner();
+	bNew.textContent="New colors";
 }
 
 /************************************************
@@ -113,6 +114,7 @@ function win() {
 		box.style.backgroundColor = rgbDisplay.innerHTML;
 	});
 	banner.style.background = rgbDisplay.innerHTML;
+	bNew.textContent="Play again?"
 }
 
 /************************************************
