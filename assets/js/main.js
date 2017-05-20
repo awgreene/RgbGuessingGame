@@ -14,7 +14,7 @@ function updateBanner() {
 Option Functions
 ************************************************/
 var options = document.querySelectorAll(".option");
-var winnerMessage = document.querySelector("#winner");
+var winnerMessage = document.querySelector("#winner-message");
 for(var i = 0; i < options.length; i++){
 	options[i].addEventListener("mouseover", function() {
 		this.classList.toggle("option-hover");
