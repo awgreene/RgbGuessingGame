@@ -49,11 +49,19 @@ table {
 
 
 
-/* START CSS */
+/* Start CSS */
 
 body {
 	background-color: #232323;
+	margin: 0;
+	font-family: "Montserrat", "Avenir";
 }
+
+h1 {
+	margin: 0;
+	font-weight: normal;
+}
+
 .content {
 	width: 600px;
 	margin: 0 auto;
@@ -68,7 +76,7 @@ body {
 }
 
 .banner {
-	background-color: blue;
+	background-color: steelblue;
 	color: white;
 	text-align: center;
 	text-transform: uppercase;
@@ -82,25 +90,23 @@ body {
 
 .options {
 	background-color: white;
-	color: blue;
+	color: steelblue;
 	font-weight: 800;
 	text-transform: uppercase;
 }
+
 .option {
 	margin:  5px;
 }
 
 .option-hover { 
-	background-color: blue;
+	background-color: steelblue;
 	color: white;
 }
 
 .option-selected {
-	background-color: blue;
+	background-color: steelblue;
 	color: white;
-}
-
-.game {
 }
 
 .row {
@@ -114,7 +120,6 @@ body {
 	padding-bottom: 30%;
 	float: left;
 }
-
 
 .hidden {
 	visibility: hidden;

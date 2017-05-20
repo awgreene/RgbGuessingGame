@@ -7,7 +7,7 @@ var banner = document.querySelector(".banner");
 var rgbDisplay = document.querySelector("#rgbDisplay");
 function updateBanner() {
 	rgbDisplay.innerHTML = boxes[selectRandomBox()].style.background
-	banner.style.background = "blue";
+	banner.style.background = "steelblue";
 }
 
 /************************************************
